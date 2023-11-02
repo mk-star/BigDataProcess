@@ -24,20 +24,23 @@ for i in range(2, sheet_ranges.max_row + 1):
 total_list.sort(reverse=True)
 
 total_count = len(total_list)
-a_limit = int(total_count * 0.3)
-aPlus_limit = min(int(a_limit * 0.5), total_count - a_limit)
-b_limit = int(total_count * 0.7)
-bPlus_limit = min(int(b_limit * 0.5), total_count - a_limit - b_limit)
 
-# Initialize grade lists
-a_grade = total_list[:a_limit]
-aPlus_grade = a_grade[:aPlus_limit]
-a_grade = a_grade[aPlus_limit:]
-b_grade = total_list[a_limit:a_limit + b_limit]
-bPlus_grade = b_grade[:bPlus_limit]
-b_grade = b_grade[bPlus_limit:]
-c_grade = total_list[a_limit + b_limit:]
+a_range = int(total_count * 0.3)
+a_grade = total_list[:a_range]
+aPlus_range = int(len(a_grade) * 0.5)
+aPlus_grade = a_grade[:aPlus_range]
+a_grade = a_grade[aPlus_range:]
 
+b_range = int(total_count * 0.7)
+b_grade = total_list[a_range:b_range]
+bPlus_range = int(len(b_grade) * 0.5)
+bPlus_grade = b_grade[:bPlus_range]
+b_grade = b_grade[bPlus_range:]
+
+c_grade = total_list[b_range:]
+cPlus_range = int(len(c_grade) * 0.5)
+cPlus_grade = c_grade[:cPlus_range]
+c_grade = c_grade[cPlus_range:]
 
 for i in range(2, sheet_ranges.max_row + 1):
     if sheet_ranges['G' + str(i)].value < 40:
