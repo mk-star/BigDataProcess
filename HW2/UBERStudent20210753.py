@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import calendar
-with open("uber_exp.txt", "r") as fr:
+with open("uber.dat", "r") as fr:
     dayofweek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
     while True:
         row = fr.readline()
